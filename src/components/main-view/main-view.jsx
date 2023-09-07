@@ -9,7 +9,7 @@ export const MainView = () => {
 	const [selectedMovie, setSelectedMovie] = useState(null);
 
 	useEffect(() => {
-		fetch('https://movies-flix-payette-cee376d48a23.herokuapp.com/')
+		fetch('https://movies-flix-payette-cee376d48a23.herokuapp.com/movies')
 		  .then((response) => response.json())
 		  .then((data) => {
 			console.log(data);
@@ -17,8 +17,8 @@ export const MainView = () => {
 			  return {
 				_id: movie.id,
 				title: movie.title,
-				imagepath: movie.imagepath,
-				description: movie.description,
+				imagePath: movie.imagePath,
+				Description: movie.Description,
 				genre: {
 				  name: movie.genre.name
 				},
