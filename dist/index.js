@@ -27177,14 +27177,14 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
-        fetch("https://movies-flix-payette-cee376d48a23.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+        fetch("https://movies-flix-payette-cee376d48a23.herokuapp.com/").then((response)=>response.json()).then((data)=>{
             console.log(data);
             const moviesFromApi = data.map((movie)=>{
                 return {
                     _id: movie.id,
                     title: movie.title,
-                    imagePath: movie.imagePath,
-                    Description: movie.Description,
+                    imagepath: movie.imagepath,
+                    description: movie.description,
                     genre: {
                         name: movie.genre.name
                     },
@@ -28212,7 +28212,7 @@ const MovieView = ({ movie, onBackClick })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.imagePath,
+                    src: movie.imagepath,
                     height: "300px"
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -28300,7 +28300,7 @@ const MovieView = ({ movie, onBackClick })=>{
                         columnNumber: 5
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: movie.director.name
+                        children: movie.director
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 23,
@@ -28375,4 +28375,4 @@ $RefreshReg$(_c, "MovieView");
 }
 },{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"nArS2","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5xWnf"}],"lJZlQ":[function() {},{}]},["g2cIC","040PD","d8Dch"], "d8Dch", "parcelRequireaec4")
 
-//# sourceMappingURL=index.b4b6dfad.js.map
+//# sourceMappingURL=index.js.map
