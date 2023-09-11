@@ -13,13 +13,13 @@ export const LoginView = ({ onLoggedIn }) => {
             password: password
         };
 
-        fetch('https://movies-flix-payette-cee376d48a23.herokuapp.com/movies', {
+        fetch('https://movies-flix-payette-cee376d48a23.herokuapp.com/login', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         }).then((response) => response.json())
             .then((data) => {
-                console.log("Login response:", data);
+                console.log(data);
                 if (data.user) {
                     onLoggedIn(data.user, data.token);
                 } else {
