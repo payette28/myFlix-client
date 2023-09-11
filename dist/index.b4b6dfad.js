@@ -28442,14 +28442,14 @@ const LoginView = ({ onLoggedIn })=>{
             username: username,
             password: password
         };
-        fetch("https://movies-flix-payette-cee376d48a23.herokuapp.com/movies", {
+        fetch("https://movies-flix-payette-cee376d48a23.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{
-            console.log("Login response:", data);
+            console.log(data);
             if (data.user) onLoggedIn(data.user, data.token);
             else alert("User doesn't exist.");
         }).catch((e)=>{
@@ -28549,7 +28549,7 @@ const SignupView = ()=>{
             email: email,
             birthday: birthday
         };
-        fetch("https://movies-flix-payette-cee376d48a23.herokuapp.com/movies", {
+        fetch("https://movies-flix-payette-cee376d48a23.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
