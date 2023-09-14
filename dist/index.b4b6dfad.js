@@ -27205,9 +27205,13 @@ const MainView = ()=>{
                     featured: movie.featured.toString()
                 };
             });
-            setMovies(moviesFromApi);
+            setMovie(moviesFromApi);
+        }).catch((error)=>{
+            console.error("Error fetching movies:", error);
         });
-    }, []);
+    }, [
+        token
+    ]);
     if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
@@ -27217,14 +27221,14 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 49,
-                columnNumber: 5
+                lineNumber: 54,
+                columnNumber: 6
             }, undefined),
             "or",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 54,
-                columnNumber: 5
+                lineNumber: 59,
+                columnNumber: 6
             }, undefined)
         ]
     }, void 0, true);
@@ -27233,14 +27237,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 61,
+        lineNumber: 66,
         columnNumber: 4
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 66,
+        lineNumber: 71,
         columnNumber: 10
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27254,7 +27258,7 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 71,
+                lineNumber: 76,
                 columnNumber: 4
             }, undefined),
             movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27264,13 +27268,13 @@ const MainView = ()=>{
                     }
                 }, movie.title, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 79,
+                    lineNumber: 84,
                     columnNumber: 5
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 70,
+        lineNumber: 75,
         columnNumber: 3
     }, undefined);
 };
