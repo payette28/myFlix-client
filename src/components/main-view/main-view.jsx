@@ -41,12 +41,7 @@ export const MainView = () => {
 				});
 				setMovies(moviesFromApi);
 			});
-		})
-
-		.catch((error) => {
-		  console.error("Error", error);
-		});
-	}, [user, token]);
+		}, [user, token]);
 	
 	if (!user) {
 		return (
