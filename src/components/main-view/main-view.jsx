@@ -41,8 +41,13 @@ export const MainView = () => {
 				});
 				setMovies(moviesFromApi);
 			});
-	}, []);
+		})
 
+		.catch((error) => {
+		  console.error("Error", error);
+		});
+	}, [user, token]);
+	
 	if (!user) {
 		return (
 			<>
@@ -77,7 +82,7 @@ export const MainView = () => {
 			>Logout</button>
 			{movies.map((movie) => (
 				<MovieCard
-					key={movie.title}
+					key={movie.id}
 					movie={movie}
 					onMovieClick={(newSelectedMovie) => {
 						setSelectedMovie(newSelectedMovie);
