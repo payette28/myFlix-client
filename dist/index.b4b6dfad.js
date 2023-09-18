@@ -27357,8 +27357,8 @@ const MovieCard = ({ movie, onMovieClick })=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: [
-                            movie.director,
-                            movie.genre
+                            movie.director.name,
+                            movie.genre.name
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-card/movie-card.jsx",
