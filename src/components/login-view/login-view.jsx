@@ -10,7 +10,7 @@ export const LoginView = ({ onLoggedIn }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const data = {
+        const inputData = {
             username: username,
             password: password
         };
@@ -18,10 +18,10 @@ export const LoginView = ({ onLoggedIn }) => {
         fetch('https://movies-flix-payette-cee376d48a23.herokuapp.com/login', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(inputData)
         }).then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                console.log('User logged in as: ',data);
                 if (data.user) {
                     onLoggedIn(data.user, data.token);
                 } else {
