@@ -11,7 +11,7 @@ export const SignupView = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data = {
+    const inputData = {
       username: username,
       password: password,
       email: email,
@@ -20,24 +20,25 @@ export const SignupView = () => {
 
     fetch('https://movies-flix-payette-cee376d48a23.herokuapp.com/users', {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(inputData),
       headers: {
         "Content-Type": "application/json"
       }
     })
-      .then((response) => {
-        if (response.ok) {
-          alert("Signup successful");
-          window.location.reload();
+    .then((response) => response.json())
+    .then((data) => {
+        if (data) {
+            alert('Signup successful!  You can now log in!');
+            window.location.reload();
         } else {
-          alert("Signup failed");
+            alert('Signup failed.  Please try again.');
         }
-      });
+    });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group>
+      <Form.Group controlId='formUsername'>
         <Form.Label>Username: </Form.Label>
         <Form.Control
           type="text"
@@ -48,7 +49,7 @@ export const SignupView = () => {
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group controlId='formPassword'>
         <Form.Label>Password: </Form.Label>
         <Form.Control
           type='password'
@@ -58,7 +59,7 @@ export const SignupView = () => {
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group controlId='formEmail'>
         <Form.Label>Email: </Form.Label>
         <Form.Control
           type='email'
@@ -68,7 +69,7 @@ export const SignupView = () => {
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group controlId='formBirthDate'>
         <Form.Label>Birthday: </Form.Label>
         <Form.Control
           type='date'
