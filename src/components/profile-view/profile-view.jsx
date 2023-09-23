@@ -74,11 +74,11 @@ export const ProfileView = ({ onDelete, movies }) => {
                         <h1>User Profile</h1>
                         <div>
                             <span>Username: </span>
-                            <span>{storedUser.Username}</span>
+                            <span>{storedUser.username}</span>
                         </div>
                         <div>
                             <span>Email: </span>
-                            <span>{storedUser.Email}</span>
+                            <span>{storedUser.email}</span>
                         </div>
                         <div>
                             <span>Date of Birth: </span>
