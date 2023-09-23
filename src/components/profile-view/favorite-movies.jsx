@@ -5,7 +5,7 @@ import { MovieCard } from '../movie-card/movie-card';
 function FavoriteMovies({movies}) {
     const storedUser = JSON.parse(localStorage.getItem('user'));
     
-    let favoriteMovies = storedUser.favoriteMovies;
+    let favoriteMovies = storedUser.favorite_movies;
 
     let filteredMovies = movies.filter(movie => {
         if (favoriteMovies.includes(movie.id)) {
