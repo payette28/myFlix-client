@@ -128,46 +128,31 @@ export const MainView = () => {
 							</>
 						}
 					/>
-					<Route
-						path='/profile'
-						element={
-							<>
-								{!user ? (
-									<Navigate to='/login' replace />
-								) : favoriteMovies.length === 0 ? (
-									<Col>
-										<Row>
-											<ProfileView user={user} />
-										</Row>
-										<Row>
-											The list is empty!
-										</Row>
-									</Col>
-								) : (
-									<Col>
-										<Row>
-										<ProfileView
+					 <Route
+                        path='/profile'
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to='/login' replace />
+                                ) : (
+                                    <Col>
+                                        <Row>
+                                            <ProfileView
+                                                movies={movies}
                                                 onDelete={() => {
                                                     setUser(null);
                                                     setToken(null);
                                                     localStorage.clear();
                                                 }}
                                             />
-										</Row>
-										{/*<Row>
-											{movies.map((movie) => (
-												<Col className='mb-4' key={movie.id} md={3}>
-													<MovieCard movie={movie} />
-												</Col>
-											))}
-											</Row>*/}
-									</Col>
-								)}
-							</>
-						}
-					/>
-				</Routes>
-			</Row>
-		</BrowserRouter>
-	);
+                                        </Row>
+                                    </Col>
+                                )}
+                            </>
+                        }
+                    />
+                </Routes>
+            </Row>
+        </BrowserRouter>
+    );
 };
