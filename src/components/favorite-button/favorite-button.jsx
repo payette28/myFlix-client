@@ -11,7 +11,7 @@ export const FavoriteButton = ({ movie }) => {
 
     const isFav = () => {
 
-        let userFavs = storedUser.favoriteMovies;
+        let userFavs = storedUser.favorite_movies;
 
         if (userFavs.includes(movie.id)) {
             return (true);
@@ -28,7 +28,7 @@ export const FavoriteButton = ({ movie }) => {
             setButtonText('+ Fav');
             setButtonVariant('primary');
         }
-    }, [user])
+    }, [user,storedToken ])
 
     const handleFavorite = () => {
         let fetchMethod = (() => { // returns DELETE or POST
